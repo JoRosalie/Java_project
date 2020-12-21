@@ -1,25 +1,9 @@
 image: zenika/alpine-maven
 
-variables:
-  MAVEN_CLI_OPTS: "--batch-mode"
-  MAVEN_OPTS: "-Dmaven.repo.local=./"
-
-cache:
-  paths:
-    - ./
-
-build_job:
+stages:
+  - build
+build:
   stage: build
-  script:
-    - mvn $MAVEN_CLI_OPTS compile
-  artifacts:
-    expire_in: 10 min
-    paths: 
-      - target/
-      - "*/target"
-
-test_job:
-  stage: test
   script:
     - pwd
     - ls -lah
