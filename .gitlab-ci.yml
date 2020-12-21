@@ -1,11 +1,25 @@
 image: zenika/alpine-maven
 
-stages:
-  - build
-build:
+variables:
+  MAVEN_CLI_OPTS: "--batch-mode"
+  MAVEN_OPTS: "-Dmaven.repo.local=servicebackjava_docker/"
+
+cache:
+  paths:
+    - servicebackjava_docker/
+
+build_job:
   stage: build
   script:
-    - pwd
-    - ls -lah
+    - mvn $MAVEN_CLI_OPTS compile
+  artifacts:
+    expire_in: 10 min
+    paths: 
+      - servicebackjava_docker/target/
+      - "*/target"
+
+test_job:
+  stage: test
+  script:
     - find . -name "*.class" -exec touch {} \+
     - mvn $MAVEN_CLI_OPTS test
