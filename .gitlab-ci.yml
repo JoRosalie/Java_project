@@ -1,7 +1,25 @@
-stages:
-  - build
-build:
+image: maven:latest
+
+variables:
+  MAVEN_CLI_OPTS: "--batch-mode"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+
+cache:
+  paths:
+    - .m2/repository/
+
+build_job:
   stage: build
   script:
-    - pwd
-    - java --version
+    - mvn $MAVEN_CLI_OPTS compile
+  artifacts:
+    expire_in: 10 min
+    paths: 
+      - target/
+      - "*/target"
+
+test_job:
+  stage: test
+  script:
+    - find . -name "*.class" -exec touch {} \+
+    - mvn $MAVEN_CLI_OPTS test
