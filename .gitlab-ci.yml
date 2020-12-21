@@ -1,4 +1,4 @@
-image: alpine-maven
+image: zenika/alpine-maven
 
 variables:
   MAVEN_CLI_OPTS: "--batch-mode"
