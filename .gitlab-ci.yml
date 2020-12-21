@@ -21,7 +21,7 @@ build_job:
 test_job:
   stage: test
   script:
-      - pwd
-      - ls -lah
+    - pwd
+    - ls -lah
     - find . -name "*.class" -exec touch {} \+
     - mvn $MAVEN_CLI_OPTS test
