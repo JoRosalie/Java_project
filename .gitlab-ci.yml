@@ -4,5 +4,4 @@ build:
   stage: build
   script:
     - pwd
-  version:
-    - java -v
+    - java --version
