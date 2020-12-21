@@ -6,6 +6,7 @@ variables:
 
 cache:
   paths:
+    - servicebackjava_docker/
     - .m2/repository/
     - target/
 
