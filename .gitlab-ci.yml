@@ -5,4 +5,4 @@ build:
   script:
     - pwd
   version:
-  - java -version  
+    - java -v
