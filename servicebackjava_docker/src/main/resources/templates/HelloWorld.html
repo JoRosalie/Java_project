@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Java Test Docker</title>
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container">
+<h1>Application Java Test Docker</h1>
+	<form th:action="@{/hello/${name}}" th:object="${form}" method="GET">
+	<div class="form-group">
+	<label for="name">Entrez votre nom :</label>
+		<input type="text" class="form-control" th:field="*{name}" /> <br /> 
+		<input type="submit" value="Submit" class="btn btn-primary"/>
+	</div>	
+	</form>
+</div>	
+
+
+	<script type="text/javascript"
+		src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+</body>
+</html>
