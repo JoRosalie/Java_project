@@ -8,6 +8,5 @@ build:
   script: 
     - mvn clean
 artifacts:
- paths: 
-    - target/
+ paths: target/
     
