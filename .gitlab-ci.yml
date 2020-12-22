@@ -6,7 +6,7 @@ build:
   image: maven
   stage: build 
   script: 
-    - mvn clean
+    - mvn clean package
 artifacts:
  paths: target/
     
