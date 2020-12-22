@@ -15,7 +15,8 @@ docker-build:
   image: docker:latest                                                                                                                      
   services:                                                                                                                                 
     - docker:dind                                                                                                                           
-  script:                                                                                                                                   
-    - docker build -t testjava ./                                                                                                                     
+  script:  
+    - registry.gitlab.com/johann.rosalie/java_project                                                                                                                          
+   # - docker build -t testjava ./                                                                                                                     
   dependencies:                                                                                                                             
     - maven-build 
