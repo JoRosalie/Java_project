@@ -16,6 +16,6 @@ docker-build:
   services:                                                                                                                                 
     - docker:dind                                                                                                                           
   script:                                                                                                                                   
-    - a vous de jouer !                                                                                                                     
+    - docker build -t testjava ./                                                                                                                     
   dependencies:                                                                                                                             
     - maven-build 
