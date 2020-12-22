@@ -1,4 +1,4 @@
-image: zenika/alpine-maven
+image: maven:latest
 
 variables:
   MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
