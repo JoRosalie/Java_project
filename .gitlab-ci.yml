@@ -1,11 +1,21 @@
-image: maven:latest
-stages:
-    - build 
-build:
-  stage: build 
-  script: 
-    - mvn clean package
-  artifacts:
-    paths: 
-    - target/
-    
+image: maven:latest                                                                                                                         
+stages:                                                                                                                                     
+  - maven-build                                                                                                                             
+  - docker-build                                                                                                                            
+maven-build:                                                                                                                                
+  stage: maven-build                                                                                                                        
+  script:                                                                                                                                   
+    - mvn package                                                                                                                           
+    - ls -lah                                                                                                                               
+  artifacts:                                                                                                                                
+    paths:                                                                                                                                  
+      - target/*.jar                                                                                                                        
+docker-build:                                                                                                                               
+  stage: docker-build                                                                                                                       
+  image: docker:latest                                                                                                                      
+  services:                                                                                                                                 
+    - docker:dind                                                                                                                           
+  script:                                                                                                                                   
+    - a vous de jouer !                                                                                                                     
+  dependencies:                                                                                                                             
+    - maven-build 
