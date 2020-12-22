@@ -9,4 +9,5 @@ build:
     - mvn clean
 
 artifacts:
+   paths: 
     - target/
