@@ -1,7 +1,8 @@
 image: maven:latest                                                                                                                         
 stages:                                                                                                                                     
   - maven-build                                                                                                                             
-  - docker-build                                                                                                                            
+  - docker-build 
+  - selenium-test                                                                                                                           
 maven-build:                                                                                                                                
   stage: maven-build                                                                                                                        
   script:                                                                                                                                   
@@ -21,3 +22,9 @@ docker-build:
     - docker push registry.gitlab.com/johann.rosalie/java_project                                                                                                 
   dependencies:                                                                                                                             
     - maven-build 
+  service:
+  selenium-test:
+    stage: selenium-test
+    images: drkms/selenium-headless:1.0
+    script:  
+      python3 -m pytest test.py
